@@ -26,8 +26,19 @@ class LinkedList:
 
         print()
 
+    def get_node(self, index):
+        cur = self.head
+        cnt = 0
+        while cnt != index:
+            cur = cur.next
+            cnt += 1
+
+        return cur
+
+
+
 
 linked_list = LinkedList(1)
 linked_list.append(2)
 linked_list.append(5)
-linked_list.print_all()
+print(linked_list.get_node(2).data)
