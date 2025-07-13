@@ -4,8 +4,12 @@ ramen_stock = 4
 supply_dates = [4, 10, 15]
 supply_supplies = [20, 5, 10]
 supply_recover_k = 30
-# stock 기존 재고량
-# stock 4개 있다 나는 4일 까지 버틸 수 있고 4일 안에서 최대 량을 뽑아서 나오면 된다.
+
+# 현재 재고는 4이고 k = 30일 까지 버텨야 한다.
+# 우선 재고 <= k 일때 까지 돌아야 한다.
+# 재고 공급량 은 supply_recover[index] <= stock 15까지도 버티는게 가능해 10을 가져와서 stock 에 넣을수 있다.
+
+
 
 
 def get_minimum_count_of_overseas_supply(stock, dates, supplies, k):
@@ -15,15 +19,16 @@ def get_minimum_count_of_overseas_supply(stock, dates, supplies, k):
     index = 0
 
     while stock <= k:
-        while index < len(dates) and dates[index] <= stock :
-            heapq.heappush(heap, supplies[index] * -1)
-            index += 1 # 아 2틀 까지 가면 그뒤는 다시 볼 필요 없어서....
+        while index < len(dates) and dates[index] <= stock:
+            heapq.heappush(heap, supplies[index])
+            index += 1
 
-        supply = heapq.heappop(heap) * -1
+        supply = heapq.heappop(heap)
         stock += supply
         answer += 1
 
     return answer
+
 
 print(get_minimum_count_of_overseas_supply(ramen_stock, supply_dates, supply_supplies, supply_recover_k))
 
