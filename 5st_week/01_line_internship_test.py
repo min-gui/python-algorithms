@@ -92,3 +92,17 @@ print("정답 = 28 / 현재 풀이 값 = ", catch_me(550, 500))
 # 브라운은 시간오면 해단 시간에 갈 수 있는 모든 경우의 수를 탐색 해서 넣는다.
 # queue에는 다음 경우의 수를 계산하기 위해서 넣는다. 1-1-1 1-1-2 1-1-3 -> 1-1-1-1, 1-1-1-2, 1-1-1-3 -> 1-1-1-1-1,1-1-1-1-2,1-1-1-1-3 이런식으로 bfs 늘어 나기 위
 # 첫번째는 브라운위치는 2 이니깐 1위치에 1시간 True, 3위치에 1시간 true, 4위치에 1시간 true
+
+
+class Solution(object):
+
+
+    def isPowerOfThree(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        print('test')
+        return False
+
+
